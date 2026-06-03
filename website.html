@@ -3,110 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rocky - Project Hail Mary | AI Assistant</title>
+    <title>Nebula Services | Next-Gen AI Solutions</title>
     <style>
+        /* Modern SaaS Styles */
+        :root {
+            --primary: #4F46E5;
+            --secondary: #818CF8;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --accent: #10b981;
+            --glass: rgba(30, 41, 59, 0.7);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #667eea;
-            --secondary: #764ba2;
-            --dark: #0d1117;
-            --light: #e6edf3;
-            --accent: #7ecfb3;
-            --warning: #f0c060;
-            --error: #ff7b72;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            font-family: 'Courier New', monospace;
-            background: var(--dark);
+            background-color: var(--darker);
             color: var(--light);
             line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Navigation */
+        /* Navbar */
         nav {
-            background: #161b22;
-            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
             display: flex;
             gap: 2rem;
-            border-bottom: 1px solid #30363d;
-            position: sticky;
-            top: 0;
-            z-index: 50;
         }
 
-        nav a {
+        .nav-links a {
             color: var(--light);
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 5%;
+        }
+
+        /* Hero Section */
+        #hero {
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1e293b 0%, var(--darker) 100%);
+            position: relative;
+        }
+
+        #hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            line-height: 1.1;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
             transition: all 0.3s;
             cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
         }
 
-        nav a:hover, nav a.active {
+        .btn-primary {
             background: var(--primary);
             color: white;
+            box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
         }
 
-        /* Main container */
-        .container {
+        .btn-primary:hover {
+            background: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
+        }
+
+        .service-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(30, 41, 59, 0.8);
+            border-color: rgba(129, 140, 248, 0.3);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--gray);
+        }
+
+        /* Features Section */
+        .features-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            background: rgba(30, 41, 59, 0.3);
             padding: 2rem;
-            min-height: calc(100vh - 200px);
+            border-radius: 1rem;
         }
 
-        /* Pages */
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease-in;
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
         }
 
-        .page.active {
-            display: block;
+        /* CTA Section */
+        #cta {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(2, 6, 23, 1) 100%);
+            border-top: 1px solid rgba(79, 70, 229, 0.2);
+            text-align: center;
+            align-items: center;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        #cta h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        h1 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 2.5em;
-        }
-
-        h2 {
-            color: var(--primary);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: #d0d5dd;
-            line-height: 1.8;
-        }
-
-        .content-section {
-            background: #161b22;
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid #30363d;
-            margin-bottom: 2rem;
+        #cta p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
         }
 
         /* Rocky Sprite */
         #rocky-container {
             position: fixed;
-            bottom: 20px;
+            bottom: 30px;
             right: 40px;
             width: 80px;
             height: 80px;
@@ -125,7 +247,32 @@
         }
 
         #rocky-container:hover #rocky-sprite {
-            filter: drop-shadow(0 6px 12px rgba(102, 126, 234, 0.6));
+            filter: drop-shadow(0 6px 12px rgba(129, 140, 248, 0.6));
+        }
+
+        /* Tooltip */
+        .rocky-tooltip {
+            position: fixed;
+            bottom: 120px;
+            right: 40px;
+            background: white;
+            color: var(--darker);
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            border-bottom-right-radius: 0;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 90;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            max-width: 250px;
+        }
+
+        .rocky-tooltip.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Chat Modal */
@@ -134,27 +281,22 @@
             position: fixed;
             bottom: 120px;
             right: 40px;
-            width: 400px;
-            max-height: 500px;
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            width: 380px;
+            height: 500px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             z-index: 200;
             flex-direction: column;
-            animation: slideUp 0.3s ease-out;
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             overflow: hidden;
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         #chat-modal.open {
@@ -162,371 +304,293 @@
         }
 
         .chat-header {
-            background: #161b22;
-            color: var(--accent);
-            padding: 1rem;
-            border-bottom: 1px solid #30363d;
+            background: rgba(30, 41, 59, 0.8);
+            padding: 1.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .chat-header-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-weight: bold;
+        }
+
+        .chat-header-status {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
         }
 
         .close-btn {
             background: transparent;
             border: none;
-            color: var(--light);
-            font-size: 1.5em;
+            color: var(--gray);
+            font-size: 1.2em;
             cursor: pointer;
-            padding: 0;
+            transition: color 0.2s;
         }
 
         .close-btn:hover {
-            color: var(--error);
+            color: white;
         }
 
         .chat-messages {
             flex: 1;
             overflow-y: auto;
-            padding: 1rem;
-            max-height: 350px;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 1rem;
         }
 
         .message {
             display: flex;
-            margin-bottom: 0.5rem;
             animation: fadeIn 0.3s ease-out;
+            max-width: 85%;
         }
 
         .message.user {
-            justify-content: flex-end;
+            align-self: flex-end;
         }
 
         .message.rocky {
-            justify-content: flex-start;
+            align-self: flex-start;
         }
 
         .message-bubble {
-            max-width: 75%;
-            padding: 0.75rem 1rem;
-            border-radius: 4px;
-            word-wrap: break-word;
-            font-size: 0.9em;
+            padding: 0.8rem 1.2rem;
+            border-radius: 1.2rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         .message.user .message-bubble {
             background: var(--primary);
             color: white;
+            border-bottom-right-radius: 0.3rem;
         }
 
         .message.rocky .message-bubble {
-            background: #161b22;
-            border: 1px solid #30363d;
-            color: var(--accent);
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            border-bottom-left-radius: 0.3rem;
         }
 
         .chat-input-area {
+            padding: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
-            gap: 0.5rem;
-            padding: 1rem;
-            border-top: 1px solid #30363d;
+            gap: 0.8rem;
+            background: rgba(15, 23, 42, 0.95);
         }
 
         #message-input {
             flex: 1;
-            background: #0d1117;
-            border: 1px solid #30363d;
-            color: var(--light);
-            padding: 0.75rem;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 2rem;
+            font-size: 0.95rem;
             outline: none;
-            transition: border-color 0.2s;
+            transition: all 0.2s;
         }
 
         #message-input:focus {
             border-color: var(--primary);
+            background: rgba(30, 41, 59, 0.8);
         }
 
         #send-btn {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             transition: all 0.2s;
-            font-family: 'Courier New', monospace;
         }
 
         #send-btn:hover {
             background: var(--secondary);
+            transform: scale(1.05);
         }
 
         #send-btn.loading {
-            opacity: 0.6;
+            opacity: 0.5;
             cursor: not-allowed;
+            transform: none;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Custom Scrollbar */
         .chat-messages::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
 
         .chat-messages::-webkit-scrollbar-track {
-            background: #0d1117;
+            background: var(--darker);
         }
 
         .chat-messages::-webkit-scrollbar-thumb {
-            background: #30363d;
-            border-radius: 3px;
+            background: #334155;
+            border-radius: 4px;
         }
 
         .chat-messages::-webkit-scrollbar-thumb:hover {
-            background: #484f58;
+            background: #475569;
         }
 
-        /* Footer */
-        footer {
-            background: #161b22;
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid #30363d;
-            margin-top: 2rem;
-            color: #8b949e;
-        }
-
-        /* Buttons */
-        .btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: 'Courier New', monospace;
-            transition: all 0.2s;
-            display: inline-block;
-        }
-
-        .btn:hover {
-            background: var(--secondary);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-primary {
-            background: var(--primary);
-        }
-
-        .btn-secondary {
-            background: var(--secondary);
-        }
-
-        /* Forms */
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 0.75rem;
-            background: #0d1117;
-            border: 1px solid #30363d;
-            color: var(--light);
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .status-message {
-            padding: 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .status-message.success {
-            background: #0f5419;
-            color: #56d364;
-            border: 1px solid #1f6feb;
-        }
-
-        .status-message.error {
-            background: #5a1a1a;
-            color: #ff7b72;
-            border: 1px solid #da3633;
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 3rem; }
+            .nav-links { display: none; }
+            #chat-modal {
+                width: calc(100% - 40px);
+                right: 20px;
+                bottom: 100px;
+                height: 60vh;
+            }
+            .rocky-tooltip {
+                right: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navbar -->
     <nav>
-        <a class="nav-link active" data-page="home">Home</a>
-        <a class="nav-link" data-page="about">About</a>
-        <a class="nav-link" data-page="contact">Contact</a>
+        <div class="logo">Nebula</div>
+        <div class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#services">Services</a>
+            <a href="#features">Features</a>
+            <a href="#cta">Contact</a>
+        </div>
     </nav>
 
-    <!-- Pages Container -->
-    <div class="container">
-        <!-- HOME PAGE -->
-        <div id="home" class="page active">
-            <h1>Welcome to Rocky's Universe 🤖</h1>
-            <div class="content-section">
-                <h2>Meet Rocky</h2>
-                <p>
-                    Rocky is an intelligent alien companion from Project Hail Mary, 
-                    fascinated by Earth and its wonders. With spider-like physiology 
-                    and multiple eyes, Rocky brings a unique perspective to every conversation.
-                </p>
-                <p>
-                    Click on Rocky (bottom right) to start chatting. Experience what it's like 
-                    to communicate with a curious being from another world!
-                </p>
-                <button class="btn btn-primary" onclick="openChat()">Start Chatting with Rocky</button>
-            </div>
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>Next-Generation AI for Your Business</h1>
+        <p>Automate workflows, analyze complex data, and provide 24/7 intelligent support with our advanced AI solutions.</p>
+        <a href="#services" class="btn btn-primary">Explore Services</a>
+    </section>
 
-            <div class="content-section">
-                <h2>Features</h2>
-                <p>✨ <strong>Intelligent AI:</strong> Powered by Gemini 2.5 Flash</p>
-                <p>🌍 <strong>Curious about Earth:</strong> Rocky asks insightful questions</p>
-                <p>💬 <strong>Real-time Chat:</strong> Instant responses powered by streaming</p>
-                <p>🎨 <strong>Beautiful UI:</strong> Dark theme inspired by GitHub</p>
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>We provide end-to-end AI integration tailored to your specific industry needs.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Predictive Analytics</h3>
+                <p>Turn raw data into actionable insights. Anticipate market trends and customer behavior with unparalleled accuracy.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>Automated Support</h3>
+                <p>Deploy intelligent agents that handle customer inquiries 24/7, reducing response times to seconds.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Workflow Automation</h3>
+                <p>Streamline repetitive tasks and optimize your operations with custom AI-driven workflows.</p>
             </div>
         </div>
+    </section>
 
-        <!-- ABOUT PAGE -->
-        <div id="about" class="page">
-            <h1>About Rocky 🚀</h1>
-            <div class="content-section">
-                <h2>Origin Story</h2>
-                <p>
-                    Rocky comes from the distant Eridani system, where life evolved 
-                    under completely different conditions than Earth. With multiple eyes 
-                    arranged in a pattern that would seem alien to us, Rocky perceives 
-                    the world in ways we can barely comprehend.
-                </p>
-                <p>
-                    Upon discovering Earth, Rocky became fascinated by our planet's 
-                    biodiversity, technology, and culture. This website is Rocky's way 
-                    of bridging the gap between worlds.
-                </p>
+    <!-- Features Section -->
+    <section id="features">
+        <div class="section-header">
+            <h2>Why Choose Nebula?</h2>
+            <p>Built on enterprise-grade infrastructure with a focus on security and reliability.</p>
+        </div>
+        <div class="features-list">
+            <div class="feature-item">
+                <div class="service-icon">🔒</div>
+                <div>
+                    <h3>Bank-Grade Security</h3>
+                    <p>Your data is encrypted at rest and in transit. We comply with SOC2, GDPR, and HIPAA standards to ensure maximum protection.</p>
+                </div>
             </div>
-
-            <div class="content-section">
-                <h2>Capabilities</h2>
-                <p><strong>Natural Language Understanding:</strong> Rocky comprehends nuance, context, and emotion</p>
-                <p><strong>Knowledge Synthesis:</strong> Can compare Earth customs to alien perspectives</p>
-                <p><strong>Genuine Curiosity:</strong> Asks follow-up questions to deepen understanding</p>
-                <p><strong>Technical Assistance:</strong> Can help explain scientific and technical concepts</p>
+            <div class="feature-item">
+                <div class="service-icon">🚀</div>
+                <div>
+                    <h3>Lightning Fast Integration</h3>
+                    <p>Our APIs and SDKs are designed for rapid deployment. Get up and running in days, not months.</p>
+                </div>
             </div>
-
-            <div class="content-section">
-                <h2>Philosophy</h2>
-                <p>
-                    Rocky believes that the best conversations happen when both parties 
-                    are genuinely curious about each other. Every interaction is an opportunity 
-                    to learn something new, whether it's about Earth, technology, or the universe itself.
-                </p>
+            <div class="feature-item">
+                <div class="service-icon">📈</div>
+                <div>
+                    <h3>Infinite Scalability</h3>
+                    <p>Our cloud-native architecture grows with your business, handling millions of requests without breaking a sweat.</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- CONTACT PAGE -->
-        <div id="contact" class="page">
-            <h1>Get in Touch with Rocky 📬</h1>
-            <div class="content-section">
-                <h2>Send a Message</h2>
-                <p>Have questions or want to share something with Rocky? Use the chat directly, 
-                or fill out the form below to send a message.</p>
-
-                <form id="contact-form" onsubmit="handleContactSubmit(event)">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                    <div id="form-status"></div>
-                </form>
-            </div>
-
-            <div class="content-section">
-                <h2>Or Chat Directly</h2>
-                <p>
-                    The fastest way to reach Rocky is through the chat interface. 
-                    Click the Rocky character in the corner to open the chat modal 
-                    and start your conversation immediately!
-                </p>
-                <button class="btn btn-secondary" onclick="openChat()">Open Chat</button>
-            </div>
-        </div>
-    </div>
+    <!-- CTA / Ending Section -->
+    <section id="cta">
+        <h2>Ready to Supercharge Your Business?</h2>
+        <p>Our AI assistant, Rocky, is here to answer any questions you have about our services, pricing, or integration process.</p>
+        <button class="btn btn-primary" onclick="openChat()">Chat with Us</button>
+    </section>
 
     <!-- Rocky Sprite -->
     <div id="rocky-container" onclick="toggleChat()">
         <div id="rocky-sprite"></div>
     </div>
 
+    <!-- Rocky Tooltip -->
+    <div id="rocky-tooltip" class="rocky-tooltip">
+        Welcome! Let me show you around! 👋
+    </div>
+
     <!-- Chat Modal -->
     <div id="chat-modal">
         <div class="chat-header">
-            <span>Rocky 🤖</span>
+            <div class="chat-header-title">
+                <div class="chat-header-status"></div>
+                Rocky Assistant
+            </div>
             <button class="close-btn" onclick="toggleChat()">✕</button>
         </div>
         <div class="chat-messages" id="chat-messages">
             <div class="message rocky">
-                <div class="message-bubble">Hey there! I'm Rocky. What would you like to know? 🌍</div>
+                <div class="message-bubble">Hello! I'm Rocky. Feel free to ask me anything about Nebula's services, pricing, or how we can help your business! 🚀</div>
             </div>
         </div>
         <div class="chat-input-area">
-            <input type="text" id="message-input" placeholder="Ask me something..." />
-            <button id="send-btn" onclick="sendMessage()">→</button>
+            <input type="text" id="message-input" placeholder="Ask a question..." />
+            <button id="send-btn" onclick="sendMessage()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>Rocky © Project Hail Mary | Built with curiosity across the cosmos</p>
-    </footer>
 
     <script>
         const userId = `user_${Date.now()}`;
         let isLoading = false;
-        let currentMood = "walk";
+        let currentMood = "stand";
+        let isWalkingEnabled = false;
         let rockyX = window.innerWidth - 140;
-        let rockyY = window.innerHeight - 160;
         let direction = "right";
         let frameIndex = 0;
         let spriteTick = 0;
@@ -541,25 +605,10 @@
             celebrate: ['jazz1.png', 'jazz2.png', 'jazz3.png']
         };
 
-        // Navigation
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const page = e.target.dataset.page;
-                showPage(page);
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                e.target.classList.add('active');
-            });
-        });
-
-        function showPage(pageName) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageName).classList.add('active');
-        }
-
         // Rocky Animation Loop
         function updateRocky() {
             // Movement
-            if (currentMood === 'walk') {
+            if (currentMood === 'walk' && isWalkingEnabled) {
                 const speed = 1.2;
                 rockyX += direction === 'right' ? speed : -speed;
                 
@@ -572,7 +621,7 @@
                 }
             }
 
-            // Sprite animation tick (frame cycling)
+            // Sprite animation tick
             spriteTick++;
             if (spriteTick >= FPS / SPRITE_FPS) {
                 spriteTick = 0;
@@ -580,24 +629,35 @@
                 frameIndex = (frameIndex + 1) % frames.length;
             }
 
-            // Get current frame
             const frames = spriteFrames[currentMood] || spriteFrames['stand'];
             const spriteName = frames[frameIndex];
             
-            // Update sprite image
             const img = document.getElementById('rocky-sprite');
             img.style.backgroundImage = `url('/sprites/${spriteName}')`;
             
-            // Flip image when walking left
             if (direction === 'left' && currentMood === 'walk') {
                 img.style.transform = 'scaleX(-1)';
             } else {
                 img.style.transform = 'scaleX(1)';
             }
 
-            // Update position
-            document.getElementById('rocky-container').style.right = `${Math.max(0, window.innerWidth - rockyX - 80)}px`;
+            const rightPos = Math.max(0, window.innerWidth - rockyX - 80);
+            document.getElementById('rocky-container').style.right = `${rightPos}px`;
             
+            // Keep modal and tooltip dynamically centered directly above Rocky's head
+            if (window.innerWidth > 768) {
+                let chatRight = rightPos - 150; // Offset by half the modal width
+                chatRight = Math.max(20, Math.min(window.innerWidth - 400, chatRight));
+                document.getElementById('chat-modal').style.right = `${chatRight}px`;
+                
+                let tooltipRight = rightPos + 20; // Aligns the "tail" perfectly to his right side
+                tooltipRight = Math.max(20, Math.min(window.innerWidth - 270, tooltipRight));
+                document.getElementById('rocky-tooltip').style.right = `${tooltipRight}px`;
+            } else {
+                document.getElementById('chat-modal').style.right = '';
+                document.getElementById('rocky-tooltip').style.right = '';
+            }
+
             requestAnimationFrame(updateRocky);
         }
 
@@ -606,13 +666,16 @@
         // Chat Functions
         function toggleChat() {
             const modal = document.getElementById('chat-modal');
+            const tooltip = document.getElementById('rocky-tooltip');
+            isWalkingEnabled = true; // Opening chat indicates they completed the tutorial
             modal.classList.toggle('open');
             if (modal.classList.contains('open')) {
                 setTimeout(() => document.getElementById('message-input').focus(), 100);
                 currentMood = 'stand';
                 frameIndex = 0;
+                tooltip.classList.remove('visible');
             } else {
-                currentMood = 'walk';
+                currentMood = isWalkingEnabled ? 'walk' : 'stand';
                 frameIndex = 0;
             }
         }
@@ -624,6 +687,68 @@
             }
         }
 
+        // Scroll Observer for Rocky Guide
+        const tooltip = document.getElementById('rocky-tooltip');
+        let chatOpenedAutomatically = false;
+        
+        function showTooltip(text, duration = 4000) {
+            const modal = document.getElementById('chat-modal');
+            if (modal.classList.contains('open')) return;
+            
+            tooltip.textContent = text;
+            tooltip.classList.add('visible');
+            currentMood = 'celebrate';
+            setTimeout(() => {
+                if(!modal.classList.contains('open')) currentMood = isWalkingEnabled ? 'walk' : 'stand';
+            }, 1000);
+            
+            clearTimeout(tooltip.timeoutId);
+            tooltip.timeoutId = setTimeout(() => {
+                tooltip.classList.remove('visible');
+            }, duration);
+        }
+
+        // Initial Tutorial Sequence
+        setTimeout(() => {
+            showTooltip("Welcome to Nebula! I'll be your guide. Scroll down to see our services! 👋", 3500);
+            
+            setTimeout(() => {
+                if (!isWalkingEnabled) {
+                    showTooltip("Tap on me to chat! 💬", 3500);
+                    setTimeout(() => {
+                        isWalkingEnabled = true;
+                        if (!document.getElementById('chat-modal').classList.contains('open')) {
+                            currentMood = 'walk';
+                        }
+                    }, 4000);
+                }
+            }, 4000);
+        }, 1000);
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    if (sectionId === 'services') {
+                        showTooltip("These are our top-tier AI services. Pretty neat, right? 🚀");
+                    } else if (sectionId === 'features') {
+                        showTooltip("Built with security and speed in mind. Earth tech is fascinating! ⚡");
+                    } else if (sectionId === 'cta') {
+                        showTooltip("Have questions? Let's chat!");
+                        if (!chatOpenedAutomatically) {
+                            setTimeout(() => openChat(), 1500);
+                            chatOpenedAutomatically = true;
+                        }
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('section').forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Chat Logic
         async function sendMessage() {
             const input = document.getElementById('message-input');
             const message = input.value.trim();
@@ -652,7 +777,6 @@
 
                 if (response.ok) {
                     addMessage(data.text, 'rocky');
-                    // Celebrate after response
                     currentMood = 'celebrate';
                     frameIndex = 0;
                     setTimeout(() => {
@@ -694,22 +818,6 @@
         document.getElementById('message-input')?.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && !isLoading) sendMessage();
         });
-
-        // Contact Form
-        function handleContactSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const statusDiv = document.getElementById('form-status');
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            statusDiv.innerHTML = '<div class="status-message success">✓ Message sent! Rocky will review it soon.</div>';
-            form.reset();
-            setTimeout(() => statusDiv.innerHTML = '', 5000);
-        }
     </script>
 </body>
 </html>
